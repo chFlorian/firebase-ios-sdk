@@ -196,6 +196,6 @@ public struct FirestoreQuery<T>: DynamicProperty {
     
     /// Adds a given document to Firestore
     public func add(_ document: T) {
-        FirestoreDocumentReferable.add(document)
+        firestoreQueryObservable.add(document)
     }
 }
