@@ -178,7 +178,7 @@ internal class FirestoreQueryObservable<T>: ObservableObject {
         firestore.collection(configuration.path).document(id).delete()
     }
     
-    internal func add(_ document: Encodable) {
+    internal func add<D>(_ document: D) where D: Encodable {
         _ = try? firestore.collection(configuration.path).addDocument(from: document)
     }
 }
