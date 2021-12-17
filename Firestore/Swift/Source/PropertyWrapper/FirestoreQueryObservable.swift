@@ -173,4 +173,12 @@ internal class FirestoreQueryObservable<T>: ObservableObject {
     listener?.remove()
     listener = nil
   }
+    
+    internal func delete(documentWithID id: String) {
+        firestore.collection(configuration.path).document(id).delete()
+    }
+    
+    internal func add(_ document: T) {
+        _ = try? firestore.collection(configuration.path).addDocument(from: document)
+    }
 }

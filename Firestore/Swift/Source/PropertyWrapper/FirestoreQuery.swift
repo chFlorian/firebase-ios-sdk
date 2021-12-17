@@ -188,4 +188,14 @@ public struct FirestoreQuery<T>: DynamicProperty {
     _firestoreQueryObservable =
       StateObject(wrappedValue: FirestoreQueryObservable<T>(configuration: configuration))
   }
+    
+    /// Deletes a given document from Firestore
+    public func delete(documentWithID id: String) {
+        firestoreQueryObservable.delete(documentWithID: id)
+    }
+    
+    /// Adds a given document to Firestore
+    public func add(_ document: T) {
+        FirestoreDocumentReferable.add(document)
+    }
 }
