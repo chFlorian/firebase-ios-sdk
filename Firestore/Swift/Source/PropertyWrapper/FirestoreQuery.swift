@@ -195,7 +195,7 @@ public struct FirestoreQuery<T>: DynamicProperty {
     }
     
     /// Adds a given document to Firestore
-    public func add(_ document: T) where T: Encodable {
+    public func add(_ document: Encodable) {
         firestoreQueryObservable.add(document)
     }
 }
